@@ -18,7 +18,7 @@ function App() {
     SetIpdata(res.data.ip);
   };
   const GetCloudflare = async () => {
-    const res = await axios.get("https://www.cloudflare.com/cdn-cgi/trace");
+    const Response = await axios.get("https://www.cloudflare.com/cdn-cgi/trace");
     const ResponseData = Response.data;
     const Split1 = ResponseData.split("\n");
     const Split2 = Split1.reduce(function (obj, pair) {
