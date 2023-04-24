@@ -27,13 +27,13 @@ function App() {
       delete obj[""];
       return obj;
     }, {});
-    console.log(res.data);
+    console.log(Split2.ip);
     SetCloudflare(Split2.ip);
   };
   const GetGeolocation = async () => {
     const res = await axios.get("https://geolocation-db.com/json/");
     console.log(res.data);
-    SetGeolocation(res.data.ip);
+    SetGeolocation(res.data.IPv4);
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function App() {
     <div className="App">
       <h2>Your IP Address is</h2>
       <h4>IPIFY : {Ipify}</h4>
-      <h4>IPDATA : {Ipdata}</h4>
+      <h4>IPDATA : {Ipdata !== "" ? `${Ipdata} (Key Required)` : ""}</h4>
       <h4>Cloudflare : {Cloudflare}</h4>
       <h4>Geolocation DB : {Geolocation}</h4>
     </div>
