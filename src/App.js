@@ -13,7 +13,7 @@ function App() {
     SetIpify(res.data.ip);
   };
   const GetIpdata = async () => {
-    const res = await axios.get("https://api.ipdata.co?api-key=be0f755b93290b4c100445d77533d291763a417c75524e95e07819ad");
+    const res = await axios.get("https://api.ipdata.co?api-key=ac113b49122b96e940fdc5fb51d3eda116395d2d45fed9d0dc65d6ff");
     console.log(res.data);
     SetIpdata(res.data.ip);
   };
@@ -37,13 +37,10 @@ function App() {
   };
 
   useEffect(() => {
-    GetIpify().then(() => {
+      GetIpify();
       GetCloudflare();
-    }).then(()=>{
       GetGeolocation();
-    }).then(()=>{
       GetIpdata();
-    })
   })
 
 
