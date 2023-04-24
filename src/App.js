@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -38,17 +37,15 @@ function App() {
   };
 
   useEffect(() => {
-    GetIpify();
-  }, []);
-  useEffect(() => {
-    GetIpdata();
-  }, []);
-  useEffect(() => {
-    GetCloudflare();
-  }, []);
-  useEffect(() => {
-    GetGeolocation();
-  }, []);
+    GetIpify().then(() => {
+      GetCloudflare();
+    }).then(()=>{
+      GetGeolocation();
+    }).then(()=>{
+      GetIpdata();
+    })
+  })
+
 
   return (
     <div className="App">
