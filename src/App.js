@@ -15,7 +15,7 @@ function App() {
   const GetIpdata = async () => {
     const res = await axios.get("https://api.ipdata.co?api-key=be0f755b93290b4c100445d77533d291763a417c75524e95e07819ad");
     console.log(res.data);
-    SetIpify(res.data.ip);
+    SetIpdata(res.data.ip);
   };
   const GetCloudflare = async () => {
     const res = await axios.get("https://www.cloudflare.com/cdn-cgi/trace");
@@ -28,12 +28,12 @@ function App() {
       return obj;
     }, {});
     console.log(res.data);
-    SetIpify(Split2.ip);
+    SetCloudflare(Split2.ip);
   };
   const GetGeolocation = async () => {
     const res = await axios.get("https://geolocation-db.com/json/");
     console.log(res.data);
-    SetIpify(res.data.ip);
+    SetGeolocation(res.data.ip);
   };
 
   useEffect(() => {
