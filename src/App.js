@@ -39,10 +39,15 @@ function App() {
 
   useEffect(() => {
     GetIpify();
+  }, []);
+  useEffect(() => {
     GetIpdata();
+  }, []);
+  useEffect(() => {
     GetCloudflare();
+  }, []);
+  useEffect(() => {
     GetGeolocation();
-    
   }, []);
 
   return (
